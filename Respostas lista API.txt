@@ -1,0 +1,25 @@
+1. Os testes desenvolvidos são manuais ou automatizados?
+
+Os testes desenvolvidos no Postman são automatizados, pois eles são escritos como scripts que são executados automaticamente pela ferramenta. Quando você cria testes no Postman, você os escreve em JavaScript e os executa sempre que fizer uma solicitação para uma API. O Postman fornece uma interface de teste que permite a execução automática de múltiplos testes para diferentes endpoints da API, tornando o processo mais eficiente e repetível.
+
+2. Alguns dos testes desenvolvidos são testes Fim-a-Fim (End-To-End)?
+
+Sim, alguns dos testes desenvolvidos podem ser considerados testes Fim-a-Fim (End-to-End), dependendo de como são estruturados. Testes Fim-a-Fim geralmente envolvem a simulação de um cenário completo, desde o início até o fim de um fluxo de trabalho, como o comportamento de um usuário real interagindo com um sistema. No caso da API de cães, se você testar um fluxo completo — por exemplo, enviar uma solicitação para a API, verificar a resposta, validar se a estrutura do JSON está correta, etc. — isso pode ser considerado um tipo de teste E2E, embora os testes de API geralmente sejam considerados mais próximos de testes de integração. Testes E2E com APIs podem envolver não apenas a verificação de dados da resposta, mas também simular interações entre vários serviços ou sistemas.
+
+3. O que se deve fazer para que os testes desenvolvidos funcionem em modo regressão?
+
+Para que os testes desenvolvidos funcionem em modo regressão, é necessário garantir que eles possam ser executados de forma contínua e sem problemas em diferentes versões do software ou da API. Aqui estão algumas dicas para preparar os testes para regressão:
+
+Isolamento e independência: Certifique-se de que cada teste é independente e isolado, ou seja, um teste não deve depender de outro para passar. Isso é importante para garantir que os testes funcionem corretamente mesmo quando novos recursos ou mudanças forem introduzidos.
+
+Automatização: Automatize os testes, para que possam ser executados a qualquer momento. Ferramentas como o Postman já oferecem essa capacidade. Você pode usar ferramentas como o Newman (o executor de linha de comando do Postman) para rodar os testes automaticamente em qualquer ambiente ou integração contínua (CI).
+
+Verificação de expectativas consistentes: Certifique-se de que os testes estão verificando aspectos consistentes e bem definidos da API, como status de resposta, tipos de dados, e valores esperados, de forma que mudanças inesperadas na API possam ser detectadas rapidamente.
+
+Documentação e versionamento: Mantenha os testes bem documentados e relacionados a versões específicas da API para garantir que eles sejam relevantes para a versão em questão. Se houver mudanças na API, os testes podem ser ajustados para refletir essas mudanças e verificar o comportamento esperado nas versões subsequentes.
+
+Integração com CI/CD: Para garantir que os testes sejam executados automaticamente a cada mudança no código ou na API, integre os testes no seu pipeline de integração contínua (CI) e entrega contínua (CD). Isso ajuda a garantir que, sempre que houver atualizações no código ou na API, os testes de regressão sejam executados para detectar problemas com mudanças inesperadas.
+
+Ambientes de teste estáveis: Mantenha ambientes de teste que sejam semelhantes aos ambientes de produção, para garantir que as condições de teste não introduzam variáveis externas que possam afetar os resultados dos testes de regressão.
+
+Em resumo, para preparar os testes para regressão, é necessário garantir que eles sejam automáticos, independentes, robustos e bem integrados ao processo de desenvolvimento e testes contínuos.

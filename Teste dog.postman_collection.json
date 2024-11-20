@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "e4e46424-e43a-409f-9722-eae86131ed94",
+		"name": "Teste dog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39315377"
+	},
+	"item": [
+		{
+			"name": "Lista dogs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"collie\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if 'bulldog' has subcategories\", function () {\r",
+							"    const bulldogSubtypes = pm.response.json().message.bulldog;\r",
+							"    pm.expect(bulldogSubtypes).to.include.members(['boston', 'english', 'french']);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if 'germanshepherd' is not null\", function () {\r",
+							"    pm.response.to.have.jsonBody('message.germanshepherd').that.is.not.null;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if there are more than 100 breeds\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(Object.keys(response.message).length).to.be.above(100);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that 'cat' breed does not exist\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.message).to.not.have.property('cat');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that 'beagle' is not null\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.message.beagle).to.not.be.null;\r",
+							"});\r",
+							"pm.collectionVariables.unset(\"variable_key\");\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}breeds/list/all",
+					"host": [
+						"{{URL}}breeds"
+					],
+					"path": [
+						"list",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
